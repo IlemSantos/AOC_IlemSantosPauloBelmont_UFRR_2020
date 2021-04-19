@@ -1,0 +1,32 @@
+LIBRARY ieee;
+USE ieee.std_logic_1164.all;
+USE ieee.numeric_std.all;
+
+ENTITY BancoRegistradores IS
+	PORT (
+		Clock : IN STD_LOGIC;
+		RegWrite : IN STD_LOGIC;
+		ReadReg1 : IN STD_LOGIC_VECTOR (1 DOWNTO 0); -- Endereço do registrador 1
+		ReadReg2 : IN STD_LOGIC_VECTOR (1 DOWNTO 0); -- Endereço do registrador 2
+		WriteData : IN STD_LOGIC_VECTOR (7 DOWNTO 0);
+		RegA : OUT STD_LOGIC_VECTOR (7 DOWNTO 0);
+		RegB : OUT STD_LOGIC_VECTOR (7 DOWNTO 0)
+	);
+END BancoRegistradores;
+
+ARCHITECTURE Behavior OF BancoRegistradores IS
+	TYPE RegBank IS ARRAY(0 to 3) of STD_LOGIC_VECTOR (7 DOWNTO 0);
+	SIGNAL Registrador : RegBank;
+
+BEGIN
+	PROCESS(Clock)
+	BEGIN
+		IF rising_edge(Clock) THEN
+			IF (RegWrite = '1') THEN
+				Registrador(to_integer(unsigned(ReadReg1))) <= WriteData;
+			END IF;
+		END IF;
+		RegA <= registrador(to_integer(unsigned(ReadReg1)));
+		RegB <= registrador(to_integer(unsigned(ReadReg2)));
+	END PROCESS;
+END Behavior;
