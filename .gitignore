@@ -1,0 +1,5 @@
+ProcessadorUniciclo/db/**
+ProcessadorUniciclo/incremental_db/**
+ProcessadorUniciclo/output_files/**
+ProcessadorUniciclo/simulation/**
+ProcessadorUniciclo/Waveform*
