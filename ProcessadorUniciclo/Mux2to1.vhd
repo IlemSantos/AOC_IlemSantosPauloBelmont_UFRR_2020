@@ -4,8 +4,10 @@ USE ieee.std_logic_1164.all;
 
 ENTITY Mux2to1 IS
 	PORT (
-		D0, D1, S0 : IN std_logic;
-		O 	: OUT std_logic
+		D0 : IN STD_LOGIC_VECTOR (7 DOWNTO 0);
+		D1 : IN STD_LOGIC_VECTOR (7 DOWNTO 0);
+		S0 : IN STD_LOGIC;
+		O : OUT STD_LOGIC_VECTOR (7 DOWNTO 0)
 	);
 END Mux2to1;
 
