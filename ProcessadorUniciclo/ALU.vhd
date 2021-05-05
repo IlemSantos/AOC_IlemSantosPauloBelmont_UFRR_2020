@@ -1,6 +1,6 @@
 LIBRARY ieee;
 USE ieee.std_logic_1164.all;
-USE ieee.numeric_std.all;
+USE ieee.std_logic_unsigned.all;
 
 ENTITY ALU IS
     PORT (
@@ -16,76 +16,9 @@ END ALU;
 
 ARCHITECTURE behavior OF ALU IS
 
--- Somador de 8 bits
-COMPONENT adder8 IS
-	PORT (
-		A: IN STD_LOGIC_VECTOR (7 downto 0);
-		B: IN STD_LOGIC_VECTOR (7 downto 0);
-		Cin : IN STD_LOGIC;
-		Cout : OUT STD_LOGIC;
-		Sum : OUT STD_LOGIC_VECTOR (7 downto 0)
-	);
-END COMPONENT;
-
--- Subtrator de 8bits
-COMPONENT sub8 IS
-	PORT (
-		A : IN STD_LOGIC_VECTOR (7 downto 0);
-		B : IN STD_LOGIC_VECTOR (7 downto 0);
-		Cout : OUT STD_LOGIC;
-		Sub : OUT STD_LOGIC_VECTOR (7 downto 0)
-	);
-END COMPONENT;
-
--- portas lógicas
-COMPONENT and_gate is
-    PORT (
-        A : IN STD_LOGIC;
-        B : IN STD_LOGIC;
-        S  : OUT STD_LOGIC
-    );
-END COMPONENT;
-
-COMPONENT not_gate is
-    PORT (
-        A : IN STD_LOGIC;
-        S  : OUT STD_LOGIC
-    );
-END COMPONENT;
-
-COMPONENT or_gate is
-    PORT (
-        A : IN STD_LOGIC;
-        B : IN STD_LOGIC;
-        S  : OUT STD_LOGIC
-    );
-END COMPONENT;
-
-COMPONENT xor_gate is
-    PORT (
-        A : IN STD_LOGIC;
-        B : IN STD_LOGIC;
-        S  : OUT STD_LOGIC
-    );
-END COMPONENT;
-
--- Para usar na instrução (1010) if para o beq e bne
-    SIGNAL in_temp_zero : std_logic;
-    SIGNAL out_temp_zero : std_logic;
-
--- Usado no resultado da multiplicação
-    SIGNAL out_multi : std_logic_vector(15 DOWNTO 0);
-
---Usados nas operações de adição e subtração
-	SIGNAL result_adder : STD_LOGIC_VECTOR(7 DOWNTO 0);
-	SIGNAL result_sub : STD_LOGIC_VECTOR(7 DOWNTO 0);
-	SIGNAL tempCoutAdder : STD_LOGIC;
-	SIGNAL tempCoutSub : STD_LOGIC;
+SIGNAl ResultAdder : STD_LOGIC_VECTOR (8 DOWNTO 0);
 
 BEGIN
-
-	 ChipSomador : adder8 PORT MAP(A, B, '0', tempCoutAdder, result_adder);
-    ChipSubtrator : sub8 PORT MAP(A, B, tempCoutSub, result_sub);
 
 	PROCESS(Clock)
 	BEGIN
@@ -97,14 +30,15 @@ BEGIN
 				Result <= A;
 				
 			WHEN "0010" => -- add
-				Result <= result_adder;
-				CarryOut <= tempCoutAdder;
+				ResultAdder <= ('0' & A) + ('0' & B);
+				Result <= ResultAdder (7 DOWNTO 0);
+				CarryOut <= ResultAdder(8);
 			
 			WHEN "0110" => -- sub
-				Result <= result_sub;
+				Result <= A - B;
 				
-			WHEN "1011" => -- mul
-				Result <= result_sub;
+--			WHEN "1011" => -- mul
+--				Result <= result_sub;
 			 
 			WHEN "0011" => -- move
 				Result <= B;
