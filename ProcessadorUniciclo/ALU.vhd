@@ -14,7 +14,7 @@ ENTITY ALU IS
     );
 END ALU;
 
-ARCHITECTURE behavior OF ALU IS
+ARCHITECTURE Behavior OF ALU IS
 
 SIGNAl ResultAdder : STD_LOGIC_VECTOR (8 DOWNTO 0);
 
@@ -63,4 +63,4 @@ BEGIN
 				Result <= "00000000";
 		END CASE;
 	END PROCESS;
-END behavior;
+END Behavior;

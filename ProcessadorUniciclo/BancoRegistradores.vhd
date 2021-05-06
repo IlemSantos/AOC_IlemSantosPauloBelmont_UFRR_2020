@@ -9,24 +9,25 @@ ENTITY BancoRegistradores IS
 		ReadReg1 : IN STD_LOGIC_VECTOR (1 DOWNTO 0); -- Endereço do registrador 1
 		ReadReg2 : IN STD_LOGIC_VECTOR (1 DOWNTO 0); -- Endereço do registrador 2
 		WriteData : IN STD_LOGIC_VECTOR (7 DOWNTO 0);
-		RegA : OUT STD_LOGIC_VECTOR (7 DOWNTO 0);
-		RegB : OUT STD_LOGIC_VECTOR (7 DOWNTO 0)
+		ReadData1 : OUT STD_LOGIC_VECTOR (7 DOWNTO 0);
+		ReadData2 : OUT STD_LOGIC_VECTOR (7 DOWNTO 0)
 	);
 END BancoRegistradores;
 
 ARCHITECTURE Behavior OF BancoRegistradores IS
-	TYPE RegBank IS ARRAY(0 to 3) of STD_LOGIC_VECTOR (7 DOWNTO 0);
-	SIGNAL Registrador : RegBank;
+
+	TYPE BankofRegistrars IS ARRAY(0 to 3) of STD_LOGIC_VECTOR (7 DOWNTO 0);
+	SIGNAL Registrars : BankofRegistrars;
 
 BEGIN
 	PROCESS(Clock)
 	BEGIN
 		IF rising_edge(Clock) THEN
 			IF (RegWrite = '1') THEN
-				Registrador(to_integer(unsigned(ReadReg1))) <= WriteData;
+				Registrars(to_integer(unsigned(ReadReg1))) <= WriteData;
 			END IF;
 		END IF;
-		RegA <= registrador(to_integer(unsigned(ReadReg1)));
-		RegB <= registrador(to_integer(unsigned(ReadReg2)));
+		ReadData1 <= Registrars(to_integer(unsigned(ReadReg1)));
+		ReadData2 <= Registrars(to_integer(unsigned(ReadReg2)));
 	END PROCESS;
 END Behavior;
