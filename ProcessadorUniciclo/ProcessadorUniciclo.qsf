@@ -39,7 +39,7 @@
 
 set_global_assignment -name FAMILY "Cyclone V"
 set_global_assignment -name DEVICE 5CGXFC7C7F23C8
-set_global_assignment -name TOP_LEVEL_ENTITY Mux2to1
+set_global_assignment -name TOP_LEVEL_ENTITY ProcessadorUniciclo
 set_global_assignment -name ORIGINAL_QUARTUS_VERSION 20.1.1
 set_global_assignment -name PROJECT_CREATION_TIME_DATE "12:13:52  APRIL 19, 2021"
 set_global_assignment -name LAST_QUARTUS_VERSION "20.1.1 Lite Edition"
@@ -59,10 +59,19 @@ set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
 set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
 set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
 set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
-set_global_assignment -name VHDL_FILE adder8.vhd
-set_global_assignment -name VHDL_FILE sub8.vhd
-set_global_assignment -name VHDL_FILE ALU.vhd
-set_global_assignment -name VHDL_FILE Mux2to1.vhd
 set_global_assignment -name VHDL_FILE BancoRegistradores.vhd
-set_global_assignment -name VHDL_FILE unidade_de_controle.vhd
+set_global_assignment -name VHDL_FILE CounterPc.vhd
+set_global_assignment -name VHDL_FILE DivisaoInstrucao.vhd
+set_global_assignment -name VHDL_FILE MemoriaRam.vhd
+set_global_assignment -name VHDL_FILE Mux2to1.vhd
+set_global_assignment -name VHDL_FILE ExtensorSinal4to8.vhd
+set_global_assignment -name VHDL_FILE adder8.vhd
+set_global_assignment -name VHDL_FILE ProcessadorUniciclo.vhd
+set_global_assignment -name VHDL_FILE MemoriaRom.vhd
+set_global_assignment -name VHDL_FILE ExtensorSinal2to8.vhd
+set_global_assignment -name VHDL_FILE and_gate.vhd
+set_global_assignment -name VHDL_FILE sub8.vhd
+set_global_assignment -name VHDL_FILE PC.vhd
+set_global_assignment -name VHDL_FILE ALU.vhd
+set_global_assignment -name VHDL_FILE UnidadeControle.vhd
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
