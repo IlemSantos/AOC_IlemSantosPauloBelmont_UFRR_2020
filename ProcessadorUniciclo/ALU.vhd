@@ -43,6 +43,9 @@ BEGIN
 			WHEN "0011" => -- move
 				Result <= B;
 				
+			WHEN "0111" => -- li
+				Result <= B;
+				
 			WHEN "1000" => -- beq
 				IF A = B THEN
 					Zero <= '1';
