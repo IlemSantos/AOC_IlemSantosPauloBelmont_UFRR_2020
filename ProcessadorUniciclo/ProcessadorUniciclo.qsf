@@ -59,19 +59,19 @@ set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
 set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
 set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
 set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
-set_global_assignment -name VHDL_FILE BancoRegistradores.vhd
-set_global_assignment -name VHDL_FILE CounterPc.vhd
-set_global_assignment -name VHDL_FILE DivisaoInstrucao.vhd
-set_global_assignment -name VHDL_FILE MemoriaRam.vhd
-set_global_assignment -name VHDL_FILE Mux2to1.vhd
-set_global_assignment -name VHDL_FILE ExtensorSinal4to8.vhd
-set_global_assignment -name VHDL_FILE adder8.vhd
 set_global_assignment -name VHDL_FILE ProcessadorUniciclo.vhd
-set_global_assignment -name VHDL_FILE MemoriaRom.vhd
-set_global_assignment -name VHDL_FILE ExtensorSinal2to8.vhd
-set_global_assignment -name VHDL_FILE and_gate.vhd
-set_global_assignment -name VHDL_FILE sub8.vhd
-set_global_assignment -name VHDL_FILE PC.vhd
-set_global_assignment -name VHDL_FILE ALU.vhd
-set_global_assignment -name VHDL_FILE UnidadeControle.vhd
+set_global_assignment -name VHDL_FILE Componentes/UnidadeControle.vhd
+set_global_assignment -name VHDL_FILE Componentes/temp_zero.vhd
+set_global_assignment -name VHDL_FILE Componentes/PC.vhd
+set_global_assignment -name VHDL_FILE Componentes/Mux2to1.vhd
+set_global_assignment -name VHDL_FILE Componentes/MemoriaRom.vhd
+set_global_assignment -name VHDL_FILE Componentes/MemoriaRam.vhd
+set_global_assignment -name VHDL_FILE Componentes/ExtensorSinal4to8.vhd
+set_global_assignment -name VHDL_FILE Componentes/ExtensorSinal2to8.vhd
+set_global_assignment -name VHDL_FILE Componentes/DivisaoInstrucao.vhd
+set_global_assignment -name VHDL_FILE Componentes/CounterPc.vhd
+set_global_assignment -name VHDL_FILE Componentes/BancoRegistradores.vhd
+set_global_assignment -name VHDL_FILE Componentes/and_gate.vhd
+set_global_assignment -name VHDL_FILE Componentes/ALU.vhd
+set_global_assignment -name VECTOR_WAVEFORM_FILE Waveform.vwf
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
