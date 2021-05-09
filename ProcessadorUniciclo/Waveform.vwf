@@ -22,6 +22,9 @@ run -all
 quit -f
 
 
+
+
+
 </modelsim_script>
 <modelsim_script_timing>onerror {exit -code 1}
 vlib work
@@ -40,6 +43,9 @@ proc simTimestamp {} {
 after 2500 simTimestamp
 run -all
 quit -f
+
+
+
 
 
 </modelsim_script_timing>
@@ -188,6 +194,96 @@ SIGNAL("out_opcode[0]")
 	LSB_INDEX = -1;
 	DIRECTION = OUTPUT;
 	PARENT = "out_opcode";
+}
+
+SIGNAL("out_out_alu_result")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = BUS;
+	WIDTH = 8;
+	LSB_INDEX = 0;
+	DIRECTION = OUTPUT;
+	PARENT = "";
+}
+
+SIGNAL("out_out_alu_result[7]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "out_out_alu_result";
+}
+
+SIGNAL("out_out_alu_result[6]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "out_out_alu_result";
+}
+
+SIGNAL("out_out_alu_result[5]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "out_out_alu_result";
+}
+
+SIGNAL("out_out_alu_result[4]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "out_out_alu_result";
+}
+
+SIGNAL("out_out_alu_result[3]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "out_out_alu_result";
+}
+
+SIGNAL("out_out_alu_result[2]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "out_out_alu_result";
+}
+
+SIGNAL("out_out_alu_result[1]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "out_out_alu_result";
+}
+
+SIGNAL("out_out_alu_result[0]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "out_out_alu_result";
 }
 
 SIGNAL("out_out_br_reg_A")
@@ -460,7 +556,7 @@ SIGNAL("out_out_memoria_ram[0]")
 	PARENT = "out_out_memoria_ram";
 }
 
-SIGNAL("out_out_mul_2X1_ram_ula")
+SIGNAL("out_out_mul_2to1_ram_alu")
 {
 	VALUE_TYPE = NINE_LEVEL_BIT;
 	SIGNAL_TYPE = BUS;
@@ -470,84 +566,84 @@ SIGNAL("out_out_mul_2X1_ram_ula")
 	PARENT = "";
 }
 
-SIGNAL("out_out_mul_2X1_ram_ula[7]")
+SIGNAL("out_out_mul_2to1_ram_alu[7]")
 {
 	VALUE_TYPE = NINE_LEVEL_BIT;
 	SIGNAL_TYPE = SINGLE_BIT;
 	WIDTH = 1;
 	LSB_INDEX = -1;
 	DIRECTION = OUTPUT;
-	PARENT = "out_out_mul_2X1_ram_ula";
+	PARENT = "out_out_mul_2to1_ram_alu";
 }
 
-SIGNAL("out_out_mul_2X1_ram_ula[6]")
+SIGNAL("out_out_mul_2to1_ram_alu[6]")
 {
 	VALUE_TYPE = NINE_LEVEL_BIT;
 	SIGNAL_TYPE = SINGLE_BIT;
 	WIDTH = 1;
 	LSB_INDEX = -1;
 	DIRECTION = OUTPUT;
-	PARENT = "out_out_mul_2X1_ram_ula";
+	PARENT = "out_out_mul_2to1_ram_alu";
 }
 
-SIGNAL("out_out_mul_2X1_ram_ula[5]")
+SIGNAL("out_out_mul_2to1_ram_alu[5]")
 {
 	VALUE_TYPE = NINE_LEVEL_BIT;
 	SIGNAL_TYPE = SINGLE_BIT;
 	WIDTH = 1;
 	LSB_INDEX = -1;
 	DIRECTION = OUTPUT;
-	PARENT = "out_out_mul_2X1_ram_ula";
+	PARENT = "out_out_mul_2to1_ram_alu";
 }
 
-SIGNAL("out_out_mul_2X1_ram_ula[4]")
+SIGNAL("out_out_mul_2to1_ram_alu[4]")
 {
 	VALUE_TYPE = NINE_LEVEL_BIT;
 	SIGNAL_TYPE = SINGLE_BIT;
 	WIDTH = 1;
 	LSB_INDEX = -1;
 	DIRECTION = OUTPUT;
-	PARENT = "out_out_mul_2X1_ram_ula";
+	PARENT = "out_out_mul_2to1_ram_alu";
 }
 
-SIGNAL("out_out_mul_2X1_ram_ula[3]")
+SIGNAL("out_out_mul_2to1_ram_alu[3]")
 {
 	VALUE_TYPE = NINE_LEVEL_BIT;
 	SIGNAL_TYPE = SINGLE_BIT;
 	WIDTH = 1;
 	LSB_INDEX = -1;
 	DIRECTION = OUTPUT;
-	PARENT = "out_out_mul_2X1_ram_ula";
+	PARENT = "out_out_mul_2to1_ram_alu";
 }
 
-SIGNAL("out_out_mul_2X1_ram_ula[2]")
+SIGNAL("out_out_mul_2to1_ram_alu[2]")
 {
 	VALUE_TYPE = NINE_LEVEL_BIT;
 	SIGNAL_TYPE = SINGLE_BIT;
 	WIDTH = 1;
 	LSB_INDEX = -1;
 	DIRECTION = OUTPUT;
-	PARENT = "out_out_mul_2X1_ram_ula";
+	PARENT = "out_out_mul_2to1_ram_alu";
 }
 
-SIGNAL("out_out_mul_2X1_ram_ula[1]")
+SIGNAL("out_out_mul_2to1_ram_alu[1]")
 {
 	VALUE_TYPE = NINE_LEVEL_BIT;
 	SIGNAL_TYPE = SINGLE_BIT;
 	WIDTH = 1;
 	LSB_INDEX = -1;
 	DIRECTION = OUTPUT;
-	PARENT = "out_out_mul_2X1_ram_ula";
+	PARENT = "out_out_mul_2to1_ram_alu";
 }
 
-SIGNAL("out_out_mul_2X1_ram_ula[0]")
+SIGNAL("out_out_mul_2to1_ram_alu[0]")
 {
 	VALUE_TYPE = NINE_LEVEL_BIT;
 	SIGNAL_TYPE = SINGLE_BIT;
 	WIDTH = 1;
 	LSB_INDEX = -1;
 	DIRECTION = OUTPUT;
-	PARENT = "out_out_mul_2X1_ram_ula";
+	PARENT = "out_out_mul_2to1_ram_alu";
 }
 
 SIGNAL("out_out_overflow")
@@ -740,96 +836,6 @@ SIGNAL("out_out_rom[0]")
 	PARENT = "out_out_rom";
 }
 
-SIGNAL("out_out_ula_result")
-{
-	VALUE_TYPE = NINE_LEVEL_BIT;
-	SIGNAL_TYPE = BUS;
-	WIDTH = 8;
-	LSB_INDEX = 0;
-	DIRECTION = OUTPUT;
-	PARENT = "";
-}
-
-SIGNAL("out_out_ula_result[7]")
-{
-	VALUE_TYPE = NINE_LEVEL_BIT;
-	SIGNAL_TYPE = SINGLE_BIT;
-	WIDTH = 1;
-	LSB_INDEX = -1;
-	DIRECTION = OUTPUT;
-	PARENT = "out_out_ula_result";
-}
-
-SIGNAL("out_out_ula_result[6]")
-{
-	VALUE_TYPE = NINE_LEVEL_BIT;
-	SIGNAL_TYPE = SINGLE_BIT;
-	WIDTH = 1;
-	LSB_INDEX = -1;
-	DIRECTION = OUTPUT;
-	PARENT = "out_out_ula_result";
-}
-
-SIGNAL("out_out_ula_result[5]")
-{
-	VALUE_TYPE = NINE_LEVEL_BIT;
-	SIGNAL_TYPE = SINGLE_BIT;
-	WIDTH = 1;
-	LSB_INDEX = -1;
-	DIRECTION = OUTPUT;
-	PARENT = "out_out_ula_result";
-}
-
-SIGNAL("out_out_ula_result[4]")
-{
-	VALUE_TYPE = NINE_LEVEL_BIT;
-	SIGNAL_TYPE = SINGLE_BIT;
-	WIDTH = 1;
-	LSB_INDEX = -1;
-	DIRECTION = OUTPUT;
-	PARENT = "out_out_ula_result";
-}
-
-SIGNAL("out_out_ula_result[3]")
-{
-	VALUE_TYPE = NINE_LEVEL_BIT;
-	SIGNAL_TYPE = SINGLE_BIT;
-	WIDTH = 1;
-	LSB_INDEX = -1;
-	DIRECTION = OUTPUT;
-	PARENT = "out_out_ula_result";
-}
-
-SIGNAL("out_out_ula_result[2]")
-{
-	VALUE_TYPE = NINE_LEVEL_BIT;
-	SIGNAL_TYPE = SINGLE_BIT;
-	WIDTH = 1;
-	LSB_INDEX = -1;
-	DIRECTION = OUTPUT;
-	PARENT = "out_out_ula_result";
-}
-
-SIGNAL("out_out_ula_result[1]")
-{
-	VALUE_TYPE = NINE_LEVEL_BIT;
-	SIGNAL_TYPE = SINGLE_BIT;
-	WIDTH = 1;
-	LSB_INDEX = -1;
-	DIRECTION = OUTPUT;
-	PARENT = "out_out_ula_result";
-}
-
-SIGNAL("out_out_ula_result[0]")
-{
-	VALUE_TYPE = NINE_LEVEL_BIT;
-	SIGNAL_TYPE = SINGLE_BIT;
-	WIDTH = 1;
-	LSB_INDEX = -1;
-	DIRECTION = OUTPUT;
-	PARENT = "out_out_ula_result";
-}
-
 SIGNAL("out_rs")
 {
 	VALUE_TYPE = NINE_LEVEL_BIT;
@@ -895,14 +901,12 @@ TRANSITION_LIST("Clock")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 1 FOR 10.0;
 		NODE
 		{
-			REPEAT = 49;
-			LEVEL 0 FOR 10.0;
-			LEVEL 1 FOR 10.0;
+			REPEAT = 100;
+			LEVEL 0 FOR 5.0;
+			LEVEL 1 FOR 5.0;
 		}
-		LEVEL 0 FOR 10.0;
 	}
 }
 
@@ -970,6 +974,78 @@ TRANSITION_LIST("out_opcode[1]")
 }
 
 TRANSITION_LIST("out_opcode[0]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL X FOR 1000.0;
+	}
+}
+
+TRANSITION_LIST("out_out_alu_result[7]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL X FOR 1000.0;
+	}
+}
+
+TRANSITION_LIST("out_out_alu_result[6]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL X FOR 1000.0;
+	}
+}
+
+TRANSITION_LIST("out_out_alu_result[5]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL X FOR 1000.0;
+	}
+}
+
+TRANSITION_LIST("out_out_alu_result[4]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL X FOR 1000.0;
+	}
+}
+
+TRANSITION_LIST("out_out_alu_result[3]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL X FOR 1000.0;
+	}
+}
+
+TRANSITION_LIST("out_out_alu_result[2]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL X FOR 1000.0;
+	}
+}
+
+TRANSITION_LIST("out_out_alu_result[1]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL X FOR 1000.0;
+	}
+}
+
+TRANSITION_LIST("out_out_alu_result[0]")
 {
 	NODE
 	{
@@ -1194,7 +1270,7 @@ TRANSITION_LIST("out_out_memoria_ram[0]")
 	}
 }
 
-TRANSITION_LIST("out_out_mul_2X1_ram_ula[7]")
+TRANSITION_LIST("out_out_mul_2to1_ram_alu[7]")
 {
 	NODE
 	{
@@ -1203,7 +1279,7 @@ TRANSITION_LIST("out_out_mul_2X1_ram_ula[7]")
 	}
 }
 
-TRANSITION_LIST("out_out_mul_2X1_ram_ula[6]")
+TRANSITION_LIST("out_out_mul_2to1_ram_alu[6]")
 {
 	NODE
 	{
@@ -1212,7 +1288,7 @@ TRANSITION_LIST("out_out_mul_2X1_ram_ula[6]")
 	}
 }
 
-TRANSITION_LIST("out_out_mul_2X1_ram_ula[5]")
+TRANSITION_LIST("out_out_mul_2to1_ram_alu[5]")
 {
 	NODE
 	{
@@ -1221,7 +1297,7 @@ TRANSITION_LIST("out_out_mul_2X1_ram_ula[5]")
 	}
 }
 
-TRANSITION_LIST("out_out_mul_2X1_ram_ula[4]")
+TRANSITION_LIST("out_out_mul_2to1_ram_alu[4]")
 {
 	NODE
 	{
@@ -1230,7 +1306,7 @@ TRANSITION_LIST("out_out_mul_2X1_ram_ula[4]")
 	}
 }
 
-TRANSITION_LIST("out_out_mul_2X1_ram_ula[3]")
+TRANSITION_LIST("out_out_mul_2to1_ram_alu[3]")
 {
 	NODE
 	{
@@ -1239,7 +1315,7 @@ TRANSITION_LIST("out_out_mul_2X1_ram_ula[3]")
 	}
 }
 
-TRANSITION_LIST("out_out_mul_2X1_ram_ula[2]")
+TRANSITION_LIST("out_out_mul_2to1_ram_alu[2]")
 {
 	NODE
 	{
@@ -1248,7 +1324,7 @@ TRANSITION_LIST("out_out_mul_2X1_ram_ula[2]")
 	}
 }
 
-TRANSITION_LIST("out_out_mul_2X1_ram_ula[1]")
+TRANSITION_LIST("out_out_mul_2to1_ram_alu[1]")
 {
 	NODE
 	{
@@ -1257,7 +1333,7 @@ TRANSITION_LIST("out_out_mul_2X1_ram_ula[1]")
 	}
 }
 
-TRANSITION_LIST("out_out_mul_2X1_ram_ula[0]")
+TRANSITION_LIST("out_out_mul_2to1_ram_alu[0]")
 {
 	NODE
 	{
@@ -1411,78 +1487,6 @@ TRANSITION_LIST("out_out_rom[1]")
 }
 
 TRANSITION_LIST("out_out_rom[0]")
-{
-	NODE
-	{
-		REPEAT = 1;
-		LEVEL X FOR 1000.0;
-	}
-}
-
-TRANSITION_LIST("out_out_ula_result[7]")
-{
-	NODE
-	{
-		REPEAT = 1;
-		LEVEL X FOR 1000.0;
-	}
-}
-
-TRANSITION_LIST("out_out_ula_result[6]")
-{
-	NODE
-	{
-		REPEAT = 1;
-		LEVEL X FOR 1000.0;
-	}
-}
-
-TRANSITION_LIST("out_out_ula_result[5]")
-{
-	NODE
-	{
-		REPEAT = 1;
-		LEVEL X FOR 1000.0;
-	}
-}
-
-TRANSITION_LIST("out_out_ula_result[4]")
-{
-	NODE
-	{
-		REPEAT = 1;
-		LEVEL X FOR 1000.0;
-	}
-}
-
-TRANSITION_LIST("out_out_ula_result[3]")
-{
-	NODE
-	{
-		REPEAT = 1;
-		LEVEL X FOR 1000.0;
-	}
-}
-
-TRANSITION_LIST("out_out_ula_result[2]")
-{
-	NODE
-	{
-		REPEAT = 1;
-		LEVEL X FOR 1000.0;
-	}
-}
-
-TRANSITION_LIST("out_out_ula_result[1]")
-{
-	NODE
-	{
-		REPEAT = 1;
-		LEVEL X FOR 1000.0;
-	}
-}
-
-TRANSITION_LIST("out_out_ula_result[0]")
 {
 	NODE
 	{
@@ -1908,7 +1912,7 @@ DISPLAY_LINE
 
 DISPLAY_LINE
 {
-	CHANNEL = "out_out_mul_2X1_ram_ula";
+	CHANNEL = "out_out_mul_2to1_ram_alu";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Binary;
 	TREE_INDEX = 38;
@@ -1918,7 +1922,7 @@ DISPLAY_LINE
 
 DISPLAY_LINE
 {
-	CHANNEL = "out_out_mul_2X1_ram_ula[7]";
+	CHANNEL = "out_out_mul_2to1_ram_alu[7]";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Binary;
 	TREE_INDEX = 39;
@@ -1928,7 +1932,7 @@ DISPLAY_LINE
 
 DISPLAY_LINE
 {
-	CHANNEL = "out_out_mul_2X1_ram_ula[6]";
+	CHANNEL = "out_out_mul_2to1_ram_alu[6]";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Binary;
 	TREE_INDEX = 40;
@@ -1938,7 +1942,7 @@ DISPLAY_LINE
 
 DISPLAY_LINE
 {
-	CHANNEL = "out_out_mul_2X1_ram_ula[5]";
+	CHANNEL = "out_out_mul_2to1_ram_alu[5]";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Binary;
 	TREE_INDEX = 41;
@@ -1948,7 +1952,7 @@ DISPLAY_LINE
 
 DISPLAY_LINE
 {
-	CHANNEL = "out_out_mul_2X1_ram_ula[4]";
+	CHANNEL = "out_out_mul_2to1_ram_alu[4]";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Binary;
 	TREE_INDEX = 42;
@@ -1958,7 +1962,7 @@ DISPLAY_LINE
 
 DISPLAY_LINE
 {
-	CHANNEL = "out_out_mul_2X1_ram_ula[3]";
+	CHANNEL = "out_out_mul_2to1_ram_alu[3]";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Binary;
 	TREE_INDEX = 43;
@@ -1968,7 +1972,7 @@ DISPLAY_LINE
 
 DISPLAY_LINE
 {
-	CHANNEL = "out_out_mul_2X1_ram_ula[2]";
+	CHANNEL = "out_out_mul_2to1_ram_alu[2]";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Binary;
 	TREE_INDEX = 44;
@@ -1978,7 +1982,7 @@ DISPLAY_LINE
 
 DISPLAY_LINE
 {
-	CHANNEL = "out_out_mul_2X1_ram_ula[1]";
+	CHANNEL = "out_out_mul_2to1_ram_alu[1]";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Binary;
 	TREE_INDEX = 45;
@@ -1988,7 +1992,7 @@ DISPLAY_LINE
 
 DISPLAY_LINE
 {
-	CHANNEL = "out_out_mul_2X1_ram_ula[0]";
+	CHANNEL = "out_out_mul_2to1_ram_alu[0]";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Binary;
 	TREE_INDEX = 46;
@@ -2247,7 +2251,7 @@ DISPLAY_LINE
 
 DISPLAY_LINE
 {
-	CHANNEL = "out_out_ula_result";
+	CHANNEL = "out_out_alu_result";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Signed;
 	TREE_INDEX = 72;
@@ -2257,7 +2261,7 @@ DISPLAY_LINE
 
 DISPLAY_LINE
 {
-	CHANNEL = "out_out_ula_result[7]";
+	CHANNEL = "out_out_alu_result[7]";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Signed;
 	TREE_INDEX = 73;
@@ -2267,7 +2271,7 @@ DISPLAY_LINE
 
 DISPLAY_LINE
 {
-	CHANNEL = "out_out_ula_result[6]";
+	CHANNEL = "out_out_alu_result[6]";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Signed;
 	TREE_INDEX = 74;
@@ -2277,7 +2281,7 @@ DISPLAY_LINE
 
 DISPLAY_LINE
 {
-	CHANNEL = "out_out_ula_result[5]";
+	CHANNEL = "out_out_alu_result[5]";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Signed;
 	TREE_INDEX = 75;
@@ -2287,7 +2291,7 @@ DISPLAY_LINE
 
 DISPLAY_LINE
 {
-	CHANNEL = "out_out_ula_result[4]";
+	CHANNEL = "out_out_alu_result[4]";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Signed;
 	TREE_INDEX = 76;
@@ -2297,7 +2301,7 @@ DISPLAY_LINE
 
 DISPLAY_LINE
 {
-	CHANNEL = "out_out_ula_result[3]";
+	CHANNEL = "out_out_alu_result[3]";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Signed;
 	TREE_INDEX = 77;
@@ -2307,7 +2311,7 @@ DISPLAY_LINE
 
 DISPLAY_LINE
 {
-	CHANNEL = "out_out_ula_result[2]";
+	CHANNEL = "out_out_alu_result[2]";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Signed;
 	TREE_INDEX = 78;
@@ -2317,7 +2321,7 @@ DISPLAY_LINE
 
 DISPLAY_LINE
 {
-	CHANNEL = "out_out_ula_result[1]";
+	CHANNEL = "out_out_alu_result[1]";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Signed;
 	TREE_INDEX = 79;
@@ -2327,7 +2331,7 @@ DISPLAY_LINE
 
 DISPLAY_LINE
 {
-	CHANNEL = "out_out_ula_result[0]";
+	CHANNEL = "out_out_alu_result[0]";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Signed;
 	TREE_INDEX = 80;
