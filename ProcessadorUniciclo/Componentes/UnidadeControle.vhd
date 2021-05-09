@@ -21,17 +21,8 @@ BEGIN
     PROCESS (Clock)
     BEGIN
         CASE OpCode IS
-            WHEN "0000" => -- sw
-                Jump <= '0';
-                Branch <= '0';
-                MemRead <= '0';
-                MemtoReg <= '0';
-                ALUOp <= "000";
-                MemWrite <= '1';
-                ALUSrc <= '0';
-                RegWrite <= '0';
 
-            WHEN "0001" => -- lw
+            WHEN "0000" => -- lw
                 Jump <= '0';
                 Branch <= '0';
                 MemRead <= '1';
@@ -40,6 +31,16 @@ BEGIN
                 MemWrite <= '0';
                 ALUSrc <= '0';
                 RegWrite <= '1';
+
+            WHEN "0001" => -- sw
+                Jump <= '0';
+                Branch <= '0';
+                MemRead <= '0';
+                MemtoReg <= '0';
+                ALUOp <= "000";
+                MemWrite <= '1';
+                ALUSrc <= '0';
+                RegWrite <= '0';
 
             WHEN "0010" => -- add
                 Jump <= '0';
@@ -61,7 +62,7 @@ BEGIN
                 ALUSrc <= '0';
                 RegWrite <= '1';
 
-            WHEN "0101" => -- addi
+            WHEN "0100" => -- addi
                 Jump <= '0';
                 Branch <= '0';
                 MemRead <= '0';
@@ -71,7 +72,7 @@ BEGIN
                 ALUSrc <= '1';
                 RegWrite <= '1';
 
-            WHEN "0110" => -- subi
+            WHEN "0101" => -- subi
                 Jump <= '0';
                 Branch <= '0';
                 MemRead <= '0';
@@ -81,7 +82,7 @@ BEGIN
                 ALUSrc <= '1';
                 RegWrite <= '1';
 
-            WHEN "0111" => -- move
+            WHEN "0110" => -- move
                 Jump <= '0';
                 Branch <= '0';
                 MemRead <= '0';
@@ -89,6 +90,16 @@ BEGIN
                 ALUOp <= "011";
                 MemWrite <= '0';
                 ALUSrc <= '0';
+                RegWrite <= '1';
+
+            WHEN "0111" => -- li
+                Jump <= '0';
+                Branch <= '0';
+                MemRead <= '0';
+                MemtoReg <= '0';
+                ALUOp <= "011";
+                MemWrite <= '0';
+                ALUSrc <= '1';
                 RegWrite <= '1';
 
             WHEN "1000" => -- beq
@@ -129,17 +140,7 @@ BEGIN
                 ALUOp <= "111";
                 MemWrite <= '0';
                 ALUSrc <= '0';
-                RegWrite <= '0';
-
-            WHEN "1100" => -- li
-                Jump <= '0';
-                Branch <= '0';
-                MemRead <= '0';
-                MemtoReg <= '0';
-                ALUOp <= "011";
-                MemWrite <= '0';
-                ALUSrc <= '1';
-                RegWrite <= '1';
+                RegWrite <= '0';            
 
             WHEN OTHERS =>
                 Jump <= '0';
