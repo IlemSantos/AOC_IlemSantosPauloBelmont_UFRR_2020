@@ -23,9 +23,10 @@ BEGIN
             IF (MemWrite = '1') THEN
                 Memoria_Ram(to_integer(unsigned(Address))) <= WriteData;
             END IF;
-            IF (MemRead = '1') THEN
-                ReadData <= Memoria_Ram(to_integer(unsigned(Address)));
-            END IF;
+        END IF;
+		  ReadData <= "00000000";
+        IF (MemRead = '1') THEN
+            ReadData <= Memoria_Ram(to_integer(unsigned(Address)));
         END IF;
     END PROCESS;
 END behavior;

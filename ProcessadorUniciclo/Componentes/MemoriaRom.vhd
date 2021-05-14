@@ -23,7 +23,7 @@ ARCHITECTURE Behavior OF MemoriaRom IS
 	5 => "01110000", -- li S0 0
 	6 => "01110100", -- li S1 0
 	7 => "10110000", -- jump 0000
-	OTHERS => "00000000");
+	OTHERS => "11111111");
 
 ----	Teste sw e lw
 --	0 => "01000011", -- addi S0 3 -- S0 == 3
@@ -37,8 +37,8 @@ ARCHITECTURE Behavior OF MemoriaRom IS
 --	8 => "00100001", -- add S0 S1 -- S0 == 5
 --	9 => "01110000", -- li S0 0
 --	10 => "01110100", -- li S1 0
---	11 => "10110000", -- jump 0000
---	OTHERS => "00000000");
+----	11 => "10110000", -- jump 0000
+--	OTHERS => "11111111");
 
 ----	Teste move
 --	0 => "01110011", -- li S0 3
@@ -50,8 +50,8 @@ ARCHITECTURE Behavior OF MemoriaRom IS
 --	6 => "01010001", -- subi S0 1
 --	7 => "01110000", -- li S0 0
 --	8 => "01110100", -- li S1 0
---	9 => "10110000", -- jump 0000
---	OTHERS => "00000000");
+----	9 => "10110000", -- jump 0000
+--	OTHERS => "11111111");
 
 ----	Teste beq
 --	0 => "01110010", -- li S0 2
@@ -63,8 +63,8 @@ ARCHITECTURE Behavior OF MemoriaRom IS
 --	6 => "00100001", -- add S0 S1
 --	7 => "01110000", -- li S0 0
 --	8 => "01110100", -- li S1 0
---	9 => "10110000", -- jump 0000
---	OTHERS => "00000000");
+----	9 => "10110000", -- jump 0000
+--	OTHERS => "11111111");
 
 ----	Teste bne
 --	0 => "01110010", -- li S0 2
@@ -76,8 +76,8 @@ ARCHITECTURE Behavior OF MemoriaRom IS
 --	6 => "00100001", -- add S0 S1
 --	7 => "01110000", -- li S0 0
 --	8 => "01110100", -- li S1 0
---	9 => "10110000", -- jump 0000
---	OTHERS => "00000000");
+----	9 => "10110000", -- jump 0000
+--	OTHERS => "11111111");
 
 ----	Teste do overflow, números positivos 
 --	0 => "01110011", -- li S0 3
@@ -93,8 +93,8 @@ ARCHITECTURE Behavior OF MemoriaRom IS
 --	10 => "01000001", -- addi S0 1 -- S0 = 127
 --	11 => "01000001", -- addi S0 1 -- S0 = 128 Overflow
 --	12 => "01110100", -- li S1 0
---	13 => "10110000", -- jump 0000
---	OTHERS => "00000000");
+----	13 => "10110000", -- jump 0000
+--	OTHERS => "11111111");
 
 ----	Teste do overflow, números negativos
 --	0 => "01110011", -- li S0 3
@@ -113,8 +113,8 @@ ARCHITECTURE Behavior OF MemoriaRom IS
 --	13 => "01011001", -- subi S2 1 -- S2 == -129 Overflow
 --	14 => "01110100", -- li S1 0
 --	15 => "01111000", -- li S2 0
---	16 => "10110000", -- jump 0000
---	OTHERS => "00000000");
+----	16 => "10110000", -- jump 0000
+--	OTHERS => "11111111");
 
 ----	Teste subtrair números negativos
 --	0 => "01111111", -- li S3 3
@@ -128,10 +128,10 @@ ARCHITECTURE Behavior OF MemoriaRom IS
 --	8 => "00111011", -- sub S2 S3 -- S2 == -2
 --	9 => "00100110", -- add S1 S2 -- S1 == -5
 --	10 => "01000101", -- addi S1 1 -- S1 == -4
---	OTHERS => "00000000");
+--	OTHERS => "11111111");
 
 BEGIN
-	PROCESS (Clock)
+	PROCESS (Clock, input_port)
 	BEGIN
 		output_port <= Memoria_Rom(conv_integer(unsigned(input_port)));
 	END PROCESS;

@@ -19,7 +19,7 @@ ARCHITECTURE Behavior OF ALU IS
     COMPONENT temp_zero IS
         PORT (
             input_port : IN STD_LOGIC;
-				output_port : OUT STD_LOGIC
+			output_port : OUT STD_LOGIC
         );
     END COMPONENT;
 	 
@@ -29,17 +29,17 @@ ARCHITECTURE Behavior OF ALU IS
 
     -- Usados nas operações de adição e subtração
     SIGNAL result_adder : STD_LOGIC_VECTOR (8 DOWNTO 0);
-	 SIGNAL temp_overflow_adder : STD_LOGIC;
+	SIGNAL temp_overflow_adder : STD_LOGIC;
     SIGNAL result_sub : STD_LOGIC_VECTOR (8 DOWNTO 0);
-	 SIGNAL temp_overflow_sub : STD_LOGIC;
+	SIGNAL temp_overflow_sub : STD_LOGIC;
 
 BEGIN
     port_map_temp_zero : temp_zero PORT MAP(in_temp_zero, out_temp_zero);
     result_adder <= ('0' & input_A) + ('0' & input_B);
     temp_overflow_adder <= result_adder(8) XOR input_A(7) XOR input_B(7) XOR result_adder(7);
-	 result_sub <= ('0' & input_A) - ('0' & input_B);
-	 temp_overflow_sub <= result_sub(8) XOR input_A(7) XOR input_B(7) XOR result_sub(7);
-    PROCESS (Clock)
+	result_sub <= ('0' & input_A) - ('0' & input_B);
+	temp_overflow_sub <= result_sub(8) XOR input_A(7) XOR input_B(7) XOR result_sub(7);
+    PROCESS (Clock, ALUOp, input_A, input_B)
     BEGIN
         CASE ALUOp IS
 
@@ -53,7 +53,7 @@ BEGIN
 
             WHEN "010" => --sub, subi
                 output_Result <= result_sub (7 DOWNTO 0);
-					 Overflow <= temp_overflow_sub;
+				Overflow <= temp_overflow_sub;
 
             WHEN "011" => -- move, li
                 output_Result <= input_B;
